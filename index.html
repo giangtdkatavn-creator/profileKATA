@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata Việt Nam - Phân Phối Thiết Bị Cơ Khí & Dụng Cụ Cắt Gọt</title>
+    <meta name="description" content="Kata Việt Nam phân phối chính hãng dụng cụ cắt gọt Mitsubishi Materials, đá mài siêu cứng Asahi Diamond và dụng cụ gia công bánh răng Hanjiang Tool.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* HIỆU ỨNG THẺ SẢN PHẨM CHUNG */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* CSS KHỐI CHUYỂN ĐỔI TƯƠNG ĐƯƠNG */
+        .current-brand-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+        .target-brand-box {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .target-brand-box:hover {
+            transform: translateY(-8px);
+        }
+        
+        /* Màu nhận diện thương hiệu: Đỏ - Xanh - Vàng */
+        .brand-mitsubishi { border: 1px solid rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%); }
+        .brand-asahi { border: 1px solid rgba(34, 197, 94, 0.4); background: linear-gradient(180deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%); }
+        .brand-hanjiang { border: 1px solid rgba(234, 179, 8, 0.4); background: linear-gradient(180deg, rgba(234, 179, 8, 0.15) 0%, rgba(234, 179, 8, 0.05) 100%); }
+        
+        .arrow-down { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-10%); }
+            50% { transform: translateY(10%); }
+        }
+
+        .contact-pill {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .contact-pill:hover {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.03);
+        }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-900 m-0 p-0 font-['Segoe_UI',_Roboto,_sans-serif] text-white overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="text-xl font-black tracking-tight uppercase"><span class="text-green-500">KATA</span> <span class="text-red-500">VN</span></div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-400">
+                <a href="#about" class="hover:text-green-400">Giới thiệu</a>
+                <a href="#mitsubishi" class="hover:text-red-400">Mitsubishi</a>
+                <a href="#asahi" class="hover:text-green-400">Asahi Diamond</a>
+                <a href="#hanjiang" class="hover:text-yellow-400">Hanjiang Tool</a>
+                <a href="#solutions" class="hover:text-green-400">Giải pháp</a>
+            </div>
+            <a href="tel:0974926726" class="bg-green-600 hover:bg-green-500 px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors">
+                📞 0974 926 726
+            </a>
+        </div>
+    </nav>
+
+    <!-- SLIDE 1: TỔNG QUAN -->
+    <section id="about" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+        <header class="border-b border-green-500/30 pb-6 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+                <span class="text-green-500 font-semibold tracking-widest text-sm md:text-xl uppercase block mb-2">Welcome to Industrial Solution</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Công Ty TNHH Công Nghiệp <br class="hidden md:block"> <span class="text-green-500">Kata</span> <span class="text-red-500">Việt Nam</span></h1>
+            </div>
+            <div class="text-gray-500 font-mono text-sm md:text-lg">01/INDEX</div>
+        </header>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 uppercase tracking-wider flex items-center"> <span class="w-6 h-1 bg-green-500 inline-block mr-3"></span>Thông Tin Liên Hệ </h2>
+                    <p class="text-lg text-gray-300"> <strong class="text-white">Địa chỉ:</strong> 356 Ngô Gia Tự, P. Việt Hưng, TP. Hà Nội. </p>
+                </div>
+                <div class="grid grid-cols-1 gap-4 bg-slate-800/40 p-6 rounded-xl border border-slate-700">
+                    <div class="text-base text-gray-300">
+                        <span class="font-semibold text-white block mb-1">Điện thoại / Hotline:</span>
+                        <div class="flex flex-wrap gap-2 items-center">
+                            <span class="text-lg text-green-400 font-mono">(024)36 750 587</span>
+                            <span class="text-gray-600 hidden md:inline">|</span>
+                            <span class="text-lg text-yellow-400 font-mono font-bold">0974 926 726</span>
+                        </div>
+                    </div>
+                    <div class="text-base text-gray-300"><span class="font-semibold text-white block">Fax:</span><span class="font-mono">(024)36 547 823</span></div>
+                    <div class="text-base text-gray-300"><span class="font-semibold text-white block">Email:</span><a href="mailto:katavietnam@gmail.com" class="text-green-400 hover:underline">katavietnam@gmail.com</a></div>
+                    <div class="text-base text-gray-300"><span class="font-semibold text-white block">Website:</span><a href="http://katavn.com.vn" target="_blank" class="text-green-400 hover:underline">katavn.com.vn</a></div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-7 space-y-6">
+                <h2 class="text-xl md:text-2xl font-bold text-green-400 uppercase tracking-wider flex items-center"> <span class="w-6 h-1 bg-green-500 inline-block mr-3"></span>Sản Phẩm Phân Phối Chính </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                        <span class="text-red-500 font-mono text-lg font-bold mb-4">01</span>
+                        <div><h3 class="text-xl md:text-2xl font-bold text-white mb-1">Cắt Gọt Hợp Kim</h3><p class="text-gray-400">Hãng: <span class="text-gray-200 font-semibold">Mitsubishi Materials</span></p></div>
+                    </div>
+                    <div class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                        <span class="text-green-500 font-mono text-lg font-bold mb-4">02</span>
+                        <div><h3 class="text-xl md:text-2xl font-bold text-white mb-1">Đá Mài & Dao Siêu Cứng</h3><p class="text-gray-400">Hãng: <span class="text-gray-200 font-semibold">Asahi Diamond</span></p></div>
+                    </div>
+                    <div class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between sm:col-span-2">
+                        <span class="text-yellow-500 font-mono text-lg font-bold mb-4">03</span>
+                        <div><h3 class="text-xl md:text-2xl font-bold text-white mb-1">Dụng Cụ Gia Công Bánh Răng</h3><p class="text-gray-400">Hãng: <span class="text-gray-200 font-semibold">Hanjiang Tool</span></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: MITSUBISHI MATERIALS -->
+    <section id="mitsubishi" class="bg-slate-900/50 py-12 md:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <header class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-700 pb-6 mb-10 gap-4">
+                <div>
+                    <span class="text-red-500 font-semibold tracking-widest text-sm md:text-lg uppercase block mb-2">Giải Pháp Tiện - Phay - Khoan Tổng Hợp</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Mitsubishi <span class="text-red-500 break-words">Materials</span></h2>
+                </div>
+                <div class="text-gray-500 font-mono text-sm md:text-lg">02/MITSUBISHI</div>
+            </header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://data.mmc-carbide.com/6616/5848/6932/small_tools_main.png" alt="Turning Tools" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-red-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Turning Tools (Dụng cụ tiện)</h3>
+                        <p class="text-red-400 font-semibold uppercase text-xs mb-4">Dao tiện hợp kim, Cán tiện</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Mảnh dao tiện đa dạng lớp phủ (PVD, CVD, Cermet, CBN).</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Cán tiện ngoài, cán tiện lỗ, rãnh/cắt đứt và ren.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between border-red-500/10 bg-slate-800/5">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://data.mmc-carbide.com/9416/5848/6925/milling_main.png" alt="Rotating Tools" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-red-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Rotating Tools (Dụng cụ quay)</h3>
+                        <p class="text-red-400 font-semibold uppercase text-xs mb-4">Dao phay & Mũi khoan</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Phay ngón nguyên khối, phay đổi đầu (iMx) tiết kiệm chi phí.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Mũi khoan TRISTAR/DVAS và phay gắn mảnh.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://data.mmc-carbide.com/1316/5848/6901/broach_main.png" alt="Broaching Tools" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-red-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Broaches & Tooling System</h3>
+                        <p class="text-red-400 font-semibold uppercase text-xs mb-4">Dao chuốt & Gá kẹp</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Dao chuốt định hình độ chính xác cao.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✔</span> Hệ thống gá kẹp HSK-T vững chắc cho gia công nặng.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- FORM BÁO GIÁ & CHUYỂN ĐỔI MÃ MITSUBISHI -->
+            <div class="mt-10 bg-slate-800/80 border border-red-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="text-red-500">🔄</span> Nhận Báo Giá & Tra Cứu Mã Tương Đương Mitsubishi
+                    </h3>
+                    <p class="text-sm text-gray-400 mt-1">Nhập mã dụng cụ cắt gọt bạn đang dùng (Sandvik, Kyocera, Iscar, Seco, Sumitomo...), KATA sẽ tư vấn mã tương đương Mitsubishi tối ưu chi phí nhất.</p>
+                </div>
+                
+                <form action="https://formspree.io/f/xvzegowv" method="POST" class="ajax-form space-y-4">
+                    <input type="hidden" name="_subject" value="[KATA VN] Yêu cầu chuyển đổi mã Mitsubishi">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Mã sản phẩm đang sử dụng (*)</label>
+                            <input type="text" name="current_code" required placeholder="VD: CNMG120408-MA / APMT1604..." class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">SĐT / Zalo liên hệ (*)</label>
+                            <input type="text" name="contact_phone" required placeholder="Nhập SĐT để KATA gửi báo giá" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Số lượng / Ghi chú phôi</label>
+                            <input type="text" name="note" placeholder="VD: 50 hộp, mài thép SCM440..." class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-2">
+                        <div class="form-status hidden text-sm font-semibold px-4 py-2.5 rounded-lg w-full sm:w-auto"></div>
+                        <button type="submit" class="submit-btn w-full md:w-auto bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-red-600/20 flex items-center justify-center gap-2">
+                            <span>🚀 Gửi Yêu Cầu Báo Giá</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: ASAHI DIAMOND -->
+    <section id="asahi" class="py-12 md:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <header class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-700 pb-6 mb-10 gap-4">
+                <div>
+                    <span class="text-green-500 font-semibold tracking-widest text-sm md:text-lg uppercase block mb-2">Giải Pháp Mài & Cắt Gọt Vật Liệu Siêu Cứng</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Asahi <span class="text-green-400 break-words">Diamond</span></h2>
+                </div>
+                <div class="text-gray-500 font-mono text-sm md:text-lg">03/ASAHI</div>
+            </header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://www.asahidia.co.jp/wp-content/uploads/2024/01/product02-1-1.jpg" alt="Grinding Wheels" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-green-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Grinding Wheels</h3>
+                        <p class="text-green-400 font-semibold uppercase text-xs mb-4">Đá mài Kim Cương & CBN</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Đá mài Resin/Metal bond, dòng siêu xốp AEROMETAL.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Đá mài mạ điện, đá mài siêu đàn hồi (ARVO).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between border-green-500/10 bg-slate-800/5">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://www.asahidia.co.jp/wp-content/uploads/2025/12/Micro-PCD-Drill%CF%860.30.450.6-2-scaled.jpg" alt="Precision Cutting" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-green-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Precision Cutting Tools</h3>
+                        <p class="text-green-400 font-semibold uppercase text-xs mb-4">Dao tiện/phay PCD & CBN</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Công cụ mài sắc bén chuyên biệt cho vật liệu giòn.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Gia công hợp kim, kính quang học và linh kiện điện tử.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 md:h-56 bg-slate-800 rounded-xl overflow-hidden mb-6 relative">
+                            <img src="https://www.asahidia.co.jp/wp-content/uploads/2024/02/product54-1.jpg" alt="Dressers & Wire Drawing" class="w-full h-full object-cover opacity-90">
+                            <span class="absolute top-4 left-4 bg-green-500 text-white font-mono text-xs px-3 py-1 rounded-full font-bold">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Dressers & Wire Drawing Dies</h3>
+                        <p class="text-green-400 font-semibold uppercase text-xs mb-4">Dụng cụ sửa đá & Khuôn kéo dây</p>
+                        <ul class="space-y-2 text-gray-300 text-sm mb-6 border-t border-slate-800 pt-4">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Dụng cụ sửa đá mài định hình (Rotary Dressers).</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Khuôn kéo dây cáp điện từ kim cương (PCD).</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- FORM BÁO GIÁ ASAHI DIAMOND -->
+            <div class="mt-10 bg-slate-800/80 border border-green-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="text-green-400">📐</span> Yêu Cầu Báo Giá Đá Mài / Dụng Cụ Asahi Diamond
+                    </h3>
+                    <p class="text-sm text-gray-400 mt-1">Tải lên bản vẽ phôi, bản vẽ đá mài hoặc thông số kỹ thuật (D, T, H, độ hạt, loại hạt SDC/CBN...) để KATA lập báo giá chính xác.</p>
+                </div>
+                
+                <form action="https://forminit.com/f/71omupo9nr7" method="POST" enctype="multipart/form-data" class="ajax-form w-full">
+    <input type="hidden" name="_subject" value="[KATA VN] Yêu cầu báo giá Asahi Diamond (Có bản vẽ)">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+        <!-- Cột 1: SĐT -->
+        <div class="lg:col-span-3">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">1. SĐT / Zalo liên hệ (*)</label>
+            <input type="text" name="contact_phone" required placeholder="Nhập số điện thoại..." class="w-full bg-slate-900 border border-slate-700 focus:border-green-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+        </div>
+
+        <!-- Cột 2: Nút File Custom -->
+        <div class="lg:col-span-4">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">2. Đính kèm Bản vẽ kỹ thuật (*)</label>
+            <div class="relative w-full group">
+                <!-- Nút bấm hiển thị giả lập -->
+                <div class="flex items-center justify-center gap-2 w-full bg-slate-900 border border-dashed border-slate-600 group-hover:border-green-500 group-hover:text-green-400 rounded-lg px-3 py-2.5 text-gray-300 text-sm transition-colors cursor-pointer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Chọn bản vẽ (Nhiều tệp)</span>
+                </div>
+                <!-- Input file thật được ẩn đè lên trên -->
+                <input type="file" name="asahi_drawing" required multiple class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+            </div>
+            <!-- Nơi hiển thị danh sách file -->
+            <div class="file-list mt-2 flex flex-col gap-1 max-h-[120px] overflow-y-auto"></div>
+        </div>
+
+        <!-- Cột 3: Ghi chú -->
+        <div class="lg:col-span-3">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">3. Yêu cầu thêm</label>
+            <input type="text" name="note" placeholder="Máy mài, độ nhám..." class="w-full bg-slate-900 border border-slate-700 focus:border-green-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+        </div>
+
+        <!-- Cột 4: Nút Gửi (Dùng nhãn tàng hình để thẳng hàng) -->
+        <div class="lg:col-span-2">
+            <label class="block text-xs font-semibold text-gray-300 mb-1 invisible select-none">4. NÚT GỬI</label>
+            <button type="submit" class="submit-btn w-full bg-green-600 hover:bg-green-500 text-white font-bold px-4 py-2.5 rounded-lg transition-all shadow-lg shadow-green-600/20 flex items-center justify-center gap-2 h-[42px]">
+                Gửi Bản Vẽ
+            </button>
+        </div>
+    </div>
+    
+    <!-- Thông báo kết quả gửi form -->
+    <div class="form-status hidden mt-4 text-sm font-semibold px-4 py-2.5 rounded-lg w-full"></div>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: HANJIANG TOOL -->
+    <section id="hanjiang" class="bg-slate-900/50 py-12 md:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <header class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-700 pb-6 mb-10 gap-4">
+                <div>
+                    <span class="text-yellow-500 font-semibold tracking-widest text-sm md:text-lg uppercase block mb-2">Chuyên Gia Cung Cấp Dụng Cụ Gia Công Bánh Răng</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Hanjiang <span class="text-yellow-400 break-words">Tool</span></h2>
+                </div>
+                <div class="text-gray-500 font-mono text-sm md:text-lg">04/HANJIANG</div>
+            </header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="product-card p-4 rounded-xl flex items-center gap-4 border-yellow-500/10 bg-slate-800/5">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReFDCw84So026VtGy7twyT22rmh5VWzSdAMNlrtSxp8-rYDzdgrTvq6wQ&s=10" alt="Gear Hobs" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Lăn Răng</h3>
+                            <p class="text-xs text-yellow-500 uppercase font-semibold mb-1">Gear Hobs</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Lăn răng thẳng, răng nghiêng, bánh răng trục vít.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://sstools.net/wp-content/uploads/2025/12/shaper-cutters-slider.jpg.webp" alt="Shaper Cutters" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Xọc Răng</h3>
+                            <p class="text-xs text-yellow-400 uppercase font-semibold mb-1">Shaper Cutters</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Gia công bánh răng trong/ngoài và rãnh thoi.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card p-4 rounded-xl flex items-center gap-4 border-yellow-500/10 bg-slate-800/5">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPmNiHGmcWPbjQwMOcFiag_SWcwaX198CSNp8zcw39xLxSPqOsrr3Tac&s=10" alt="Power Skiving" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Power Skiving</h3>
+                            <p class="text-xs text-amber-500 uppercase font-semibold mb-1">Skiving Tools</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Công nghệ gia công bánh răng tốc độ cao, đa trục.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://www.broachmasters.com/wp-content/uploads/2016/01/Gear-Spline-Broaches_10A1745-300x200.jpg" alt="Broaches" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Chuốt</h3>
+                            <p class="text-xs text-amber-400 uppercase font-semibold mb-1">Broaches</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Chuốt rãnh cavat, lỗ tròn, rãnh xoắn công nghiệp.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card p-4 rounded-xl flex items-center gap-4 border-yellow-500/10 bg-slate-800/5">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://tiimg.tistatic.com/fp/1/006/580/durable-gear-shaving-cutter-312.jpg" alt="Shaving Cutters" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Cà Răng</h3>
+                            <p class="text-xs text-yellow-500 uppercase font-semibold mb-1">Shaving Cutters</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Tăng độ chính xác và hoàn thiện bề mặt biên dạng răng.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-800 rounded-lg overflow-hidden shrink-0 flex items-center justify-center bg-gray-800">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcjM0q-4v3OI9AL1wQiAfU2Frpea1I6gTpV7tCdFZBIVDJOUUie5mpaU&s=10" alt="Milling & Chamfering" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="flex flex-col justify-between h-full w-full">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-1">Dao Phay & Vát Mép</h3>
+                            <p class="text-xs text-yellow-400 uppercase font-semibold mb-1">Milling & Chamfering</p>
+                            <p class="text-gray-400 text-xs sm:text-sm line-clamp-2">Phay định hình, phay bánh răng côn và khử bavia.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- FORM BÁO GIÁ HANJIANG TOOL -->
+            <div class="mt-10 bg-slate-800/80 border border-yellow-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="text-yellow-400">⚙️</span> Yêu Cầu Báo Giá Dụng Cụ Gia Công Bánh Răng Hanjiang Tool
+                    </h3>
+                    <p class="text-sm text-gray-400 mt-1">Gửi bản vẽ thiết kế bánh răng, phôi gia công hoặc thông số Module, số răng, góc áp lực... để KATA chọn dao lăn/xọc/chuốt phù hợp nhất.</p>
+                </div>
+                
+                <form action="https://forminit.com/f/71omupo9nr7" method="POST" enctype="multipart/form-data" class="ajax-form w-full">
+    <input type="hidden" name="_subject" value="[KATA VN] Yêu cầu báo giá Hanjiang Tool (Có bản vẽ)">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+        <div class="lg:col-span-3">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">1. SĐT / Zalo liên hệ (*)</label>
+            <input type="text" name="contact_phone" required placeholder="Nhập số điện thoại..." class="w-full bg-slate-900 border border-slate-700 focus:border-yellow-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+        </div>
+
+        <div class="lg:col-span-4">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">2. Đính kèm Bản vẽ phôi / Răng (*)</label>
+            <div class="relative w-full group">
+                <div class="flex items-center justify-center gap-2 w-full bg-slate-900 border border-dashed border-slate-600 group-hover:border-yellow-500 group-hover:text-yellow-400 rounded-lg px-3 py-2.5 text-gray-300 text-sm transition-colors cursor-pointer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Chọn bản vẽ (Nhiều tệp)</span>
+                </div>
+                <input type="file" name="hanjiang_drawing" required multiple class="file-input absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+            </div>
+            <div class="file-list mt-2 flex flex-col gap-1 max-h-[120px] overflow-y-auto"></div>
+        </div>
+
+        <div class="lg:col-span-3">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">3. Yêu cầu thêm</label>
+            <input type="text" name="note" placeholder="Module, Số răng..." class="w-full bg-slate-900 border border-slate-700 focus:border-yellow-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+        </div>
+
+        <div class="lg:col-span-2">
+            <label class="block text-xs font-semibold text-gray-300 mb-1 invisible select-none">4. NÚT GỬI</label>
+            <button type="submit" class="submit-btn w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold px-4 py-2.5 rounded-lg transition-all shadow-lg shadow-yellow-600/20 flex items-center justify-center gap-2 h-[42px]">
+                Gửi Bản Vẽ
+            </button>
+        </div>
+    </div>
+    
+    <div class="form-status hidden mt-4 text-sm font-semibold px-4 py-2.5 rounded-lg w-full"></div>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: GIẢI PHÁP ỨNG DỤNG -->
+    <section id="solutions" class="py-12 md:py-20" style="background: linear-gradient(135deg, #0b1c11 0%, #111827 100%);">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <header class="text-center mb-12 flex flex-col items-center">
+                <span class="text-green-500 font-semibold tracking-widest text-sm md:text-xl uppercase block mb-2">Đồng Hành Cùng Mọi Lĩnh Vực Cốt Lõi</span>
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">Giải Pháp Công Nghiệp <span class="text-green-400">Toàn Diện</span></h2>
+                <p class="text-gray-400 mt-4 text-base md:text-lg max-w-2xl">Lựa chọn bộ công cụ chuyên biệt tối ưu chi phí và tăng độ chuẩn xác cho dây chuyền sản xuất của bạn.</p>
+                <div class="text-gray-500 font-mono text-sm mt-4">05/SOLUTIONS</div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-stretch">
+                <!-- Cột 1 -->
+                <div class="flex flex-col h-full">
+                    <div class="text-center mb-4 h-12 flex items-center justify-center">
+                        <h3 class="text-xl font-bold text-gray-200">Gia Công Kim Loại & Khuôn Mẫu</h3>
+                    </div>
+                    <div class="current-brand-box rounded-xl p-6 text-center flex flex-col justify-center items-center min-h-[128px]">
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Ngành công nghiệp mục tiêu</p>
+                        <div class="text-lg md:text-xl font-black text-gray-300">Ô tô, Hàng không</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-4">
+                        <svg class="w-8 h-8 text-red-500 arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="target-brand-box brand-mitsubishi rounded-xl p-6 flex flex-col justify-between flex-1">
+                        <div class="text-center border-b border-red-500/20 pb-4 mb-4">
+                            <p class="text-xs text-red-400 uppercase font-semibold mb-1">Giải pháp khuyên dùng</p>
+                            <div class="text-xl md:text-2xl font-black text-white">Mitsubishi Materials</div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li><span class="text-red-500 mr-1">✔</span> Tốc độ bóc tách phôi cực cao.</li>
+                            <li><span class="text-red-500 mr-1">✔</span> Hoạt động bền bỉ trong gia công cứng.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cột 2 -->
+                <div class="flex flex-col h-full">
+                    <div class="text-center mb-4 h-12 flex items-center justify-center">
+                        <h3 class="text-xl font-bold text-gray-200">Vật Liệu Bán Dẫn & Kính</h3>
+                    </div>
+                    <div class="current-brand-box rounded-xl p-6 text-center flex flex-col justify-center items-center min-h-[128px]">
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Ngành công nghiệp mục tiêu</p>
+                        <div class="text-lg md:text-xl font-black text-gray-300">Điện tử, Thiết bị quang học</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-4">
+                        <svg class="w-8 h-8 text-green-500 arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="target-brand-box brand-asahi rounded-xl p-6 flex flex-col justify-between flex-1">
+                        <div class="text-center border-b border-green-500/20 pb-4 mb-4">
+                            <p class="text-xs text-green-400 uppercase font-semibold mb-1">Giải pháp khuyên dùng</p>
+                            <div class="text-xl md:text-2xl font-black text-white">Asahi Diamond</div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li><span class="text-green-500 mr-1">✔</span> Khả năng mài bề mặt siêu mịn.</li>
+                            <li><span class="text-green-500 mr-1">✔</span> Thiết kế chuyên biệt cho vật liệu giòn.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cột 3 -->
+                <div class="flex flex-col h-full">
+                    <div class="text-center mb-4 h-12 flex items-center justify-center">
+                        <h3 class="text-xl font-bold text-gray-200">Chế Tạo Máy & Bánh Răng</h3>
+                    </div>
+                    <div class="current-brand-box rounded-xl p-6 text-center flex flex-col justify-center items-center min-h-[128px]">
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Ngành công nghiệp mục tiêu</p>
+                        <div class="text-lg md:text-xl font-black text-gray-300">Hộp số, Cơ khí & Năng lượng</div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-4">
+                        <svg class="w-8 h-8 text-yellow-500 arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="target-brand-box brand-hanjiang rounded-xl p-6 flex flex-col justify-between flex-1">
+                        <div class="text-center border-b border-yellow-500/20 pb-4 mb-4">
+                            <p class="text-xs text-yellow-400 uppercase font-semibold mb-1">Giải pháp khuyên dùng</p>
+                            <div class="text-xl md:text-2xl font-black text-white">Hanjiang Tool</div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li><span class="text-yellow-500 mr-1">✔</span> Các hệ dao bánh răng kích cỡ lớn.</li>
+                            <li><span class="text-yellow-500 mr-1">✔</span> Gia công chính xác hệ truyền động trục.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: FOOTER / LIÊN HỆ -->
+    <footer id="contact" class="bg-gray-950 py-16 border-t border-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-[600px] bg-green-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tight text-white uppercase mb-4">Xin Cảm Ơn!</h2>
+                <p class="text-lg md:text-xl text-green-400 font-medium uppercase">Trân trọng hợp tác cùng Quý khách hàng & Đối tác</p>
+                <div class="w-16 h-1 bg-green-500 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="contact-pill p-6 rounded-xl text-center md:text-left">
+                    <span class="text-xs text-gray-500 uppercase block mb-2 tracking-widest">Văn phòng</span>
+                    <p class="text-base text-gray-200">356 Ngô Gia Tự, P. Việt Hưng, HN</p>
+                </div>
+                <div class="contact-pill p-6 rounded-xl text-center md:text-left">
+                    <span class="text-xs text-gray-500 uppercase block mb-2 tracking-widest">Hotline</span>
+                    <a href="tel:0974926726" class="text-xl text-yellow-400 font-mono font-bold block">0974 926 726</a>
+                </div>
+                <div class="contact-pill p-6 rounded-xl text-center md:text-left">
+                    <span class="text-xs text-gray-500 uppercase block mb-2 tracking-widest">Email</span>
+                    <a href="mailto:katavietnam@gmail.com" class="text-base text-green-400 hover:underline break-all">katavietnam@gmail.com</a>
+                </div>
+                <div class="contact-pill p-6 rounded-xl text-center md:text-left">
+                    <span class="text-xs text-gray-500 uppercase block mb-2 tracking-widest">Website</span>
+                    <a href="http://katavn.com.vn" target="_blank" class="text-xl text-green-400 font-bold hover:underline">katavn.com.vn</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4 text-center md:text-left font-mono">
+                <p>© 2026 Kata Vietnam Co., Ltd. All rights reserved.</p>
+                <p class="uppercase tracking-widest">06/END</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT XỬ LÝ GỬI FORM KHÔNG CHUYỂN TRANG -->
+    <script>
+        // XỬ LÝ HIỂN THỊ VÀ QUẢN LÝ DANH SÁCH FILE UPLOAD (CHUNG CHO TẤT CẢ FORM)
+document.querySelectorAll('.file-input').forEach(input => {
+    // Mỗi input sẽ có một kho lưu trữ DataTransfer ảo riêng để thao tác thêm/xóa file
+    input.dt = new DataTransfer();
+
+    input.addEventListener('change', function() {
+        const fileListContainer = this.parentElement.nextElementSibling; // Khối div.file-list
+        
+        // Cập nhật các file mới chọn vào DataTransfer
+        for (let i = 0; i < this.files.length; i++) {
+            this.dt.items.add(this.files[i]);
+        }
+        
+        // Đồng bộ dữ liệu ngược lại vào thẻ input
+        this.files = this.dt.files;
+        
+        // Gọi hàm vẽ giao diện danh sách
+        renderFileList(this, fileListContainer);
+    });
+});
+
+function renderFileList(inputElement, container) {
+    container.innerHTML = '';
+    const dt = inputElement.dt;
+    
+    // Nếu có file mới bỏ class required để form cho phép submit
+    if (dt.files.length > 0) {
+        inputElement.removeAttribute('required');
+    } else {
+        inputElement.setAttribute('required', 'true');
+    }
+
+    Array.from(dt.files).forEach((file, index) => {
+        const fileRow = document.createElement('div');
+        fileRow.className = 'flex items-center justify-between bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-md text-xs text-gray-300';
+        fileRow.innerHTML = `
+            <div class="flex items-center gap-2 overflow-hidden">
+                <span class="text-blue-400 font-mono flex-shrink-0">📎</span>
+                <span class="truncate max-w-[150px] sm:max-w-[200px]">${file.name}</span>
+                <span class="text-gray-500 flex-shrink-0 text-[10px]">(${(file.size / 1024).toFixed(1)} KB)</span>
+            </div>
+            <button type="button" class="remove-btn text-red-500 hover:text-red-400 ml-2 px-1 font-black text-sm" data-index="${index}">✕</button>
+        `;
+        container.appendChild(fileRow);
+    });
+
+    // Lắng nghe sự kiện Xóa file
+    container.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-index'));
+            let newDt = new DataTransfer();
+            
+            // Chép lại toàn bộ file trừ file vừa bị ấn xóa
+            Array.from(dt.files).forEach((file, i) => {
+                if (i !== idx) newDt.items.add(file);
+            });
+            
+            inputElement.dt = newDt;
+            inputElement.files = inputElement.dt.files;
+            renderFileList(inputElement, container);
+        });
+    });
+}
+    </script>
+
+</body>
+</html>
